@@ -29,6 +29,12 @@
 		"$mod, L, movefocus, r"
 		"$mod, K, movefocus, u"
 		"$mod, J, movefocus, d"
+		"$mod, XF86AudioRaiseVolume, exec, pamixer -i 5"
+		"$mod, XF86AudioLowerVolume, exec, pamixer -d 5"
+		"$mod, XF86AudioMute, exec, pamixer -t"
+		"$mod, XF86MonBrightnessUp, exec, brightnessctl set +10%"
+		"$mod, XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
 
 			] ++ (
 			  builtins.concatLists (builtins.genList (i:
@@ -66,6 +72,9 @@
 	python3.13-numpy
 	python3.13-sympy
 	zathura-with-plugins
+	yt-dlp
+	git-credential-oauth
+	anki-bin
 	];
 	home.stateVersion = "25.05";
 }
