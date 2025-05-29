@@ -57,20 +57,25 @@
 	firefox
 	zsh
 	neovim
-	clang
-	python3
-	texliveFull
 	fastfetch
 	btop
-	python3.13-matplotlib
-	python3.13-numpy
-	python3.13-sympy
 	zathura-with-plugins
 	yt-dlp
 	git-credential-oauth
 	anki-bin
 	pamixer
 	brightnessctl
+	fzf
+	exa
+	zoxide
+	inetutils
+	playerctl
+	grim
+	slurp
+	wl-clipboard
+	xdg-utils
+	nix-output-monitor
+	nixfmt
 	];
 	home.stateVersion = "25.05";
 }
