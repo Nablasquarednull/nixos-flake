@@ -59,7 +59,7 @@
 	neovim
 	fastfetch
 	btop
-	zathura-with-plugins
+	zathura
 	yt-dlp
 	git-credential-oauth
 	anki-bin
@@ -67,7 +67,6 @@
 	brightnessctl
 	fzf
 	exa
-	zoxide
 	inetutils
 	playerctl
 	grim
