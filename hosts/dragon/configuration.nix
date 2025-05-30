@@ -69,6 +69,8 @@
     kitty
     firefox
     waybar
+    mpv
+    git-credential-oauth
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
