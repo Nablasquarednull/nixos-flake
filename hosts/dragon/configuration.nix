@@ -105,7 +105,7 @@
  	enable = true;
 	extraPortals = [pkgs.xdg-desktop-portal-gtk];
 	};
-hardware.pulseaudio.enable = false;
+services.pulseaudio.enable = false;
 services.pipewire = {
 enable = true;
 audio.enable = true;

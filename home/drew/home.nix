@@ -66,7 +66,7 @@
 	pamixer
 	brightnessctl
 	fzf
-	exa
+	eza
 	inetutils
 	playerctl
 	grim
@@ -74,7 +74,7 @@
 	wl-clipboard
 	xdg-utils
 	nix-output-monitor
-	nixfmt
+	nixfmt-rfc-style
 	];
 	home.stateVersion = "25.05";
 }
