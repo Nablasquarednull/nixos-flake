@@ -29,6 +29,13 @@
 		"$mod, L, movefocus, r"
 		"$mod, K, movefocus, u"
 		"$mod, J, movefocus, d"
+		"$mod, F, fullscreen"
+		", XF86AudioRaiseVolume, exec, pamixer -i 5"
+		", XF86AudioLowerVolume, exec, pamixer -d 5"
+		", XF86AudioMute, exec, pamixer -t"
+		", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+		", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
 
 			] ++ (
 			  builtins.concatLists (builtins.genList (i:
@@ -61,11 +68,12 @@
 	btop
 	zathura
 	yt-dlp
+	python3
+	clang
 	git-credential-oauth
 	anki-bin
 	pamixer
 	brightnessctl
-	fzf
 	eza
 	inetutils
 	playerctl
@@ -73,7 +81,6 @@
 	slurp
 	wl-clipboard
 	xdg-utils
-	nix-output-monitor
 	nixfmt-rfc-style
 	];
 	home.stateVersion = "25.05";
