@@ -91,6 +91,7 @@
 	nixfmt-rfc-style
 	nerdfonts
 	eww
+	tree
 	];
 	home.stateVersion = "25.05";
 }
