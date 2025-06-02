@@ -1,5 +1,11 @@
 {config, pkgs, ... }:
 {
+	imports = [
+    		./modules/eww.nix
+  		];
+
+
+
 	home.username = "drew";
 	home.homeDirectory = "/home/drew";
 
@@ -12,6 +18,7 @@
 	};
 
 	programs.kitty.enable = true;
+	fonts.fontconfig.enable = true;
 
 	wayland.windowManager.hyprland = {
 	enable = true;
@@ -82,6 +89,8 @@
 	wl-clipboard
 	xdg-utils
 	nixfmt-rfc-style
+	nerdfonts
+	eww
 	];
 	home.stateVersion = "25.05";
 }
