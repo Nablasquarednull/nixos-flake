@@ -89,7 +89,7 @@
 	wl-clipboard
 	xdg-utils
 	nixfmt-rfc-style
-	nerdfonts
+	nerd-fonts.jetbrains-mono
 	eww
 	tree
 	];
