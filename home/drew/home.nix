@@ -1,11 +1,5 @@
 {config, pkgs, ... }:
 {
-	imports = [
-    		./modules/eww.nix
-  		];
-
-
-
 	home.username = "drew";
 	home.homeDirectory = "/home/drew";
 
