@@ -84,7 +84,6 @@
 	xdg-utils
 	nixfmt-rfc-style
 	nerd-fonts.jetbrains-mono
-	eww
 	tree
 	];
 	home.stateVersion = "25.05";
