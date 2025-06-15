@@ -12,7 +12,6 @@
 	};
 
 	programs.kitty.enable = true;
-	fonts.fontconfig.enable = true;
 
 	wayland.windowManager.hyprland = {
 	enable = true;
@@ -75,16 +74,16 @@
 	anki-bin
 	pamixer
 	brightnessctl
-	eza
 	inetutils
+	usbutils
 	playerctl
 	grim
 	slurp
 	wl-clipboard
 	xdg-utils
-	nixfmt-rfc-style
-	nerd-fonts.jetbrains-mono
 	tree
+	nnn
+	ranger
 	];
 	home.stateVersion = "25.05";
 }
