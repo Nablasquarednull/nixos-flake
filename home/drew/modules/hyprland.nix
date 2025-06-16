@@ -1,0 +1,53 @@
+{ config, pkgs, lib, ... }:
+
+let
+  mod = "SUPER";
+in {
+  wayland.windowManager.hyprland = {
+    enable = true;
+
+    settings = {
+
+      bind = [
+        "${mod}, Return, exec, kitty"
+        "SUPER SHIFT, Q, killactive,"
+        "${mod}, D, exec, wofi --show drun"
+
+        "${mod} SHIFT, H, movewindow, l"
+        "${mod} SHIFT, L, movewindow, r"
+        "${mod} SHIFT, K, movewindow, u"
+        "${mod} SHIFT, J, movewindow, d"
+
+        "${mod}, H, movefocus, l"
+        "${mod}, L, movefocus, r"
+        "${mod}, K, movefocus, u"
+        "${mod}, J, movefocus, d"
+
+        "${mod}, F, fullscreen"
+
+        ", XF86AudioRaiseVolume, exec, pamixer -i 5"
+        ", XF86AudioLowerVolume, exec, pamixer -d 5"
+        ", XF86AudioMute, exec, pamixer -t"
+
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ] ++ (
+        builtins.concatLists (builtins.genList (i:
+          let ws = toString (i + 1);
+          in [
+            "${mod}, ${ws}, workspace, ${ws}"
+            "${mod} SHIFT, ${ws}, movetoworkspace, ${ws}"
+          ]
+        ) 9)
+      );
+    };
+
+    extraConfig = ''
+      input {
+        kb_layout = es
+      }
+      exec-once = waybar
+    '';
+  };
+}
+
