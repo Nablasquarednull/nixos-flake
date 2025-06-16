@@ -47,6 +47,17 @@ in {
         kb_layout = es
       }
       exec-once = waybar
+      monitor = eDP-1,1920x1080@60,0x0,1
+      windowrulev2 = opacity 0.7 0.95,class:^(kitty)$
+      general {
+    border_size = 3
+    col.active_border = rgba(33ccffee)
+    col.inactive_border = rgba(333333aa)
+  }
+
+  decoration {
+    rounding = 10
+  }
     '';
   };
 }
