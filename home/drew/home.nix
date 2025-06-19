@@ -6,6 +6,7 @@ let
 in
 {
   imports = [
+    "${modulesPath}/hyprlock.nix"
     "${modulesPath}/hyprland.nix"
     "${modulesPath}/waybar.nix"
     "${modulesPath}/kitty.nix"
