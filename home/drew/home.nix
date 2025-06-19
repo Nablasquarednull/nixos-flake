@@ -6,7 +6,6 @@ let
 in
 {
   imports = [
-    "${modulesPath}/nvim.nix"
     "${modulesPath}/hyprland.nix"
     "${modulesPath}/waybar.nix"
     "${modulesPath}/kitty.nix"
@@ -19,7 +18,7 @@ in
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    waybar wofi kitty firefox zsh neovim fastfetch btop zathura yt-dlp
+    waybar wofi kitty firefox zsh fastfetch btop zathura yt-dlp
     python3 clang git-credential-oauth anki-bin pamixer brightnessctl
     inetutils usbutils playerctl grim slurp wl-clipboard xdg-utils
     tree nnn ranger nerd-fonts.jetbrains-mono networkmanager_dmenu
