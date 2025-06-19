@@ -29,7 +29,7 @@ in
           monitor = "";
           size = {
             width = 200;
-            height = 40;
+            height = 30;
           };
           outline_thickness = 2;
           dots_center = false;
@@ -40,7 +40,6 @@ in
             y = -200;
           };
           halign = "center";
-          valign = "center";
           font_color = "rgba(ffffffee)";
           inner_color = "rgba(222222aa)";
           outer_color = "rgba(88888888)";
@@ -57,7 +56,6 @@ in
             y = 580;
           };
           halign = "center";
-          valign = "center";
           font_size = 32;
           font_color = "rgba(ffffffdd)";
         }
