@@ -31,8 +31,8 @@ in
             width = 200;
             height = 30;
           };
-          outline_thickness = 2;
-          dots_center = false;
+          outline_thickness = 3;
+          dots_center = true;
           fade_on_empty = true;
           placeholder_text = "Enter password…";
           position = {
@@ -40,6 +40,7 @@ in
             y = -200;
           };
           halign = "center";
+          valign = "bottom";
           font_color = "rgba(ffffffee)";
           inner_color = "rgba(222222aa)";
           outer_color = "rgba(88888888)";
@@ -55,19 +56,20 @@ in
             x = 0;
             y = 580;
           };
-          halign = "center";
+          halign = "right";
+          valign = "top";
           font_size = 32;
           font_color = "rgba(ffffffdd)";
         }
         {
           monitor = "";
-          text = "";
+          text = "Create.";
           position = {
             x = 0;
-            y = 340;
+            y = 0;
           };
-          halign = "center";
-          valign = "center";
+          halign = "left";
+          valign = "top";
           font_size = 16;
           font_color = "rgba(aaaaaaff)";
         }
