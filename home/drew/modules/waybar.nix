@@ -17,17 +17,20 @@ in
   programs.waybar = {
     enable = true;
 
-    # Resto de tu configuración idéntica…
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 40;
         spacing = 8;
 
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = ["backlight" "pulseaudio" "network" "battery" "tray" ];
+        modules-center = [ "custom/userhost" ];
+        modules-right = [ "backlight" "pulseaudio" "network" "battery" "tray" "clock" ];
+
+        "custom/userhost" = {
+          format = "drew@dragon";
+        };
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -39,7 +42,7 @@ in
           device = "intel_backlight";
           format = "{percent}% {icon}";
           format-icons = ["󱩎" "󱩏" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩖"];
-          };
+        };
 
         clock = {
           format = "{:%A, %d %B %Y | %H:%M}";
@@ -71,51 +74,41 @@ in
     style = ''
       * {
         font-family: JetBrainsMono Nerd Font;
-        font-size: 13px;
+        font-size: 15px;
+        font-weight: bold;
       }
 
       window#waybar {
-        background: ${theme.background};
-        color: ${theme.foreground};
+        background: transparent;
+        color: black;
       }
 
+      #custom-userhost,
       #clock,
       #battery,
       #network,
       #pulseaudio,
       #tray,
-      #workspaces {
-        padding: 0 10px;
+      #backlight {
+        background: rgba(255, 255, 255, 0.8);
+        color: black;
+        padding: 2px 10px;
+        margin: 4px 4px;
+        border-radius: 8px;
       }
 
       #workspaces button {
+        background: rgba(255, 255, 255, 0.8);
+        color: black;
         border: none;
-        background: ${theme.black};
-        color: ${theme.white};
-        padding: 0 8px;
-        margin: 2px;
-        border-radius: 6px;
+        padding: 2px 10px;
+        margin: 4px 4px;
+        border-radius: 8px;
       }
 
       #workspaces button.active {
         background: ${theme.blue};
-        color: ${theme.background};
-      }
-
-      #battery {
-        color: ${theme.green};
-      }
-
-      #network {
-        color: ${theme.cyan};
-      }
-
-      #pulseaudio {
-        color: ${theme.magenta};
-      }
-
-      #clock {
-        color: ${theme.yellow};
+        color: white;
       }
     '';
   };

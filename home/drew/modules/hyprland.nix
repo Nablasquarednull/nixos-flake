@@ -58,6 +58,7 @@ in {
   decoration {
     rounding = 10
   }
+  exec-once = hyprpaper
     '';
   };
 }
