@@ -4,8 +4,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "/home/drew/Pictures/wallpaper.png" ];
-      wallpaper = [ ",/home/drew/Pictures/wallpaper.png" ];
+      preload = [ "/home/drew/Pictures/Solitary.png" ];
+      wallpaper = [ ",/home/drew/Pictures/Solitary.png" ];
       splash = false;
     };
   };

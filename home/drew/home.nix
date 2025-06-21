@@ -24,7 +24,7 @@ in
     python3 clang git-credential-oauth anki-bin pamixer brightnessctl
     inetutils usbutils playerctl grim slurp wl-clipboard xdg-utils
     tree nnn ranger nerd-fonts.jetbrains-mono networkmanager_dmenu
-    hyprpaper papirus-icon-theme
+    hyprpaper papirus-icon-theme jq
   ];
 
   home.stateVersion = "25.05";
