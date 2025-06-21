@@ -1,62 +1,69 @@
 { config, pkgs, ... }:
 
 let
-  tokyoNight = {
-    background = "#1a1b26";
-    foreground = "#c0caf5";
-    accent     = "#7aa2f7";
-    selection  = "#33467c";
+  theme = {
+    background = "#ffffff";
+    foreground = "#000000";
+    accent     = "#cccccc"; # borde y resaltado sutil
+    selection  = "#e0e0e0"; # fondo para ítem seleccionado
   };
 in {
   home.packages = [ pkgs.wofi ];
 
+  # Configuración del estilo
   xdg.configFile."wofi/style.css".text = ''
     * {
-      font-family: JetBrainsMono Nerd Font, sans-serif;
+      font-family: JetBrainsMono Nerd Font;
+      font-weight: bold;
       font-size: 14px;
+      color: ${theme.foreground};
     }
 
     window {
-      margin: 5px;
+      background-color: ${theme.background};
+      border: 2px solid ${theme.accent};
+      border-radius: 12px;
       padding: 10px;
-      background-color: ${tokyoNight.background};
-      border: 2px solid ${tokyoNight.accent};
     }
 
     #input {
-      margin: 5px;
-      border-radius: 5px;
-      padding: 6px;
-      background-color: #16161e;
-      color: ${tokyoNight.foreground};
+      background-color: ${theme.selection};
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border: none;
     }
 
-    #inner-box {
-      margin: 5px;
-      padding: 10px;
-    }
-
-    #outer-box {
-      margin: 5px;
-      padding: 5px;
-    }
-
-    #scroll {
-      margin: 0px;
-      padding: 5px;
+    #inner-box, #outer-box, #scroll {
+      margin: 0;
+      padding: 0;
     }
 
     #entry {
-      padding: 8px;
-      margin: 4px 0;
-      border-radius: 4px;
-      color: ${tokyoNight.foreground};
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 8px;
+      background-color: ${theme.background};
+      color: ${theme.foreground};
     }
 
     #entry:selected {
-      background-color: ${tokyoNight.selection};
-      color: ${tokyoNight.accent};
+      background-color: ${theme.selection};
+      color: ${theme.foreground};
     }
+  '';
+
+  # Configuración general de wofi (opcional, pero útil)
+  xdg.configFile."wofi/config".text = ''
+    show-icons=true
+    allow-markup=true
+    insensitive=true
+    no-persistent-history=true
+    location=center
+    width=500
+    height=400
+    lines=10
+    prompt=Buscar:
   '';
 }
 
