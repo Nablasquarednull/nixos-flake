@@ -6,6 +6,7 @@ let
 in
 {
   imports = [
+    "${modulesPath}/hypridle.nix"
     "${modulesPath}/hyprpaper.nix"
     "${modulesPath}/hyprlock.nix"
     "${modulesPath}/hyprland.nix"
@@ -24,7 +25,7 @@ in
     python3 clang git-credential-oauth anki-bin pamixer brightnessctl
     inetutils usbutils playerctl grim slurp wl-clipboard xdg-utils
     tree nnn ranger nerd-fonts.jetbrains-mono networkmanager_dmenu
-    hyprpaper papirus-icon-theme jq
+    hyprpaper papirus-icon-theme jq hypridle
   ];
 
   home.stateVersion = "25.05";
