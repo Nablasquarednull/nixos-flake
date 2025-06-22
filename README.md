@@ -21,5 +21,5 @@ This repository contains the [Nix Flakes](https://nixos.wiki/wiki/Flakes)-based 
 ### Clone the repo:
 
 ```bash
-git clone https://github.com/your-username/nixos-flake.git
+git clone https://github.com/NablaSquaredNull/nixos-flake.git
 cd nixos-flake
