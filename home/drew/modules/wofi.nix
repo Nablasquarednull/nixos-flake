@@ -57,13 +57,14 @@ in {
   xdg.configFile."wofi/config".text = ''
     show-icons=true
     allow-markup=true
+    image_size = 40
     insensitive=true
     no-persistent-history=true
     location=center
     width=500
     height=400
     lines=10
-    prompt=Buscar:
+    prompt=Search anything...
   '';
 }
 

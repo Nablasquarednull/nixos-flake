@@ -1,90 +1,105 @@
-{ pkgs, lib, ... }:
+ { config, pkgs, lib, ... }:
 
 let
-  lockShortcut = "SUPER, X, exec, hyprlock";
-in
-{
-  # Hyprlock como paquete e integración con Hyprland
+  colorsConfPath = ./colors.conf; # Ruta relativa al archivo en tu módulo
+in {
   programs.hyprlock = {
     enable = true;
 
     settings = {
+      source = "colors.conf";
+
       general = {
-        grace = 2; # tiempo antes del lock real
-        hide-cursor = true;
         ignore_empty_input = true;
       };
 
-      background = [
-        {
-          monitor = "";
-          path = "screenshot"; # borroso del fondo actual
-          blur_passes = 2;
-          blur_size = 5;
-        }
-      ];
+      background = {
+        monitor = "";
+        path = "/home/drew/Pictures/Solitary_blur.png"; # Cambia esto si usas otra imagen
+      };
 
-      input-field = [
-        {
-          monitor = "";
-          size = {
-            width = 200;
-            height = 30;
-          };
-          outline_thickness = 3;
-          dots_center = true;
-          fade_on_empty = true;
-          placeholder_text = "Enter password…";
-          position = {
-            x = 0;
-            y = -200;
-          };
-          halign = "center";
-          valign = "bottom";
-          font_color = "rgba(ffffffee)";
-          inner_color = "rgba(222222aa)";
-          outer_color = "rgba(88888888)";
-          outline_color = "rgba(ffffff88)";
-        }
-      ];
+      input-field = {
+        monitor = "";
+        size = "200, 50";
+        outline_thickness = 3;
+        dots_size = 0.33;
+        dots_spacing = 0.15;
+        dots_center = true;
+        dots_rounding = -1;
+        outer_color = "$on_primary";
+        inner_color = "$on_surface";
+        font_color = "$surface";
+        fade_on_empty = false;
+        fade_timeout = 1000;
+        placeholder_text = "<i>Input Password...</i>";
+        hide_input = false;
+        rounding = 40;
+        check_color = "$primary";
+        fail_color = "$error";
+        fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
+        fail_transition = 300;
+        capslock_color = -1;
+        numlock_color = -1;
+        bothlock_color = -1;
+        invert_numlock = false;
+        swap_font_color = false;
+        position = "0, -20";
+        halign = "center";
+        valign = "center";
+        shadow_passes = 10;
+        shadow_size = 20;
+        shadow_color = "$shadow";
+        shadow_boost = 1.6;
+      };
 
       label = [
         {
           monitor = "";
-          text = ''$TIME'';
-          position = {
-            x = 0;
-            y = 580;
-          };
+          text = "cmd[update:1000] echo \"$TIME\"";
+          color = "$on_surface";
+          font_size = 55;
+          font_family = "Fira Semibold";
+          position = "-100, 70";
           halign = "right";
-          valign = "top";
-          font_size = 32;
-          font_color = "rgba(ffffffdd)";
+          valign = "bottom";
+          shadow_passes = 5;
+          shadow_size = 10;
         }
         {
           monitor = "";
-          text = "Create.";
-          position = {
-            x = 0;
-            y = 0;
-          };
-          halign = "left";
-          valign = "top";
-          font_size = 16;
-          font_color = "rgba(aaaaaaff)";
+          text = "$USER";
+          color = "$on_surface";
+          font_size = 20;
+          font_family = "Fira Semibold";
+          position = "-100, 160";
+          halign = "right";
+          valign = "bottom";
+          shadow_passes = 5;
+          shadow_size = 10;
         }
       ];
+
+      image = {
+        monitor = "";
+        path = "/home/drew/Pictures/Solitary_square.png"; # Cambia esto si no la tienes
+        size = 280;
+        rounding = 40;
+        border_size = 4;
+        border_color = "$primary";
+        rotate = 0;
+        reload_time = -1;
+        position = "0, 200";
+        halign = "center";
+        valign = "center";
+        shadow_passes = 10;
+        shadow_size = 20;
+        shadow_color = "$shadow";
+        shadow_boost = 1.6;
+      };
     };
   };
 
-  # Keybind para lanzarlo
-  wayland.windowManager.hyprland.settings = {
-    bind = [
-      lockShortcut
-    ];
-  };
-
-  # Asegura que hyprlock esté disponible
-  home.packages = with pkgs; [ hyprlock ];
+  # Copiamos colors.conf al path donde hyprlock lo espera
+  xdg.configFile."hyprlock/colors.conf".source = colorsConfPath;
 }
-
+ 

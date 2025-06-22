@@ -6,6 +6,7 @@ let
     foreground = "#cdd6f4";
     black      = "#313244";
     white      = "#ffffff";
+    gray       = "#9a9b9c";
     blue       = "#89b4fa";
     green      = "#a6e3a1";
     cyan       = "#94e2d5";
@@ -97,19 +98,20 @@ in
         border-radius: 8px;
       }
 
-      #workspaces button {
-        background: rgba(255, 255, 255, 0.8);
-        color: black;
-        border: none;
-        padding: 2px 10px;
-        margin: 4px 4px;
-        border-radius: 8px;
-      }
+     #workspaces button {
+    background: rgba(43, 43, 43, 0.4);
+    color: white;
+    border: 2px solid white;
+    padding: 2px 10px;
+    margin: 4px 4px;
+    border-radius: 8px;
+  }
 
-      #workspaces button.active {
-        background: ${theme.blue};
-        color: white;
-      }
+  #workspaces button.active {
+    background: rgba(255, 255, 255, 0.8); /* como los módulos */
+    color: black;
+    border: none;
+  } 
     '';
   };
 }

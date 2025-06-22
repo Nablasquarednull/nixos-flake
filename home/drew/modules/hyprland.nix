@@ -12,6 +12,7 @@ in {
         "${mod}, Return, exec, kitty"
         "SUPER SHIFT, Q, killactive,"
         "${mod}, D, exec, wofi --show drun"
+        "SUPER, X, exec, hyprlock"
 
         "${mod} SHIFT, H, movewindow, l"
         "${mod} SHIFT, L, movewindow, r"
