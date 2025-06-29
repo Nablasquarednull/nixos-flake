@@ -60,6 +60,7 @@ in {
     rounding = 10
   }
   exec-once = hyprpaper
+  exec-once = hypridle
     '';
   };
 }

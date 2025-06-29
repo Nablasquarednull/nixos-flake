@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.hypridle = {
@@ -6,23 +6,21 @@
 
     settings = {
       general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
-        before_sleep_cmd = "hyprctl dispatch dpms off";
-        lock_cmd = "hyprlock"; # o tu script de bloqueo si usas uno personalizado
       };
 
       listeners = [
-        # Listener 1: Bloqueo tras 5 minutos de inactividad
         {
-          timeout = 300; # segundos = 5 min
-          on-timeout = "hyprlock";
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+          on-resume = "hyprctl dispatch dpms on";
         }
-
-        # Listener 2: Suspensión tras 10 minutos de inactividad
         {
-          timeout = 600; # segundos = 10 min
+          timeout = 660;
           on-timeout = "systemctl suspend";
-          on-resume = ""; # puedes poner algún comando si quieres al volver
+          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };
