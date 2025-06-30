@@ -25,7 +25,11 @@ in
     python3 clang git-credential-oauth anki-bin pamixer brightnessctl
     inetutils usbutils playerctl grim slurp wl-clipboard xdg-utils
     tree nnn ranger nerd-fonts.jetbrains-mono networkmanager_dmenu
-    hyprpaper papirus-icon-theme jq hypridle ladybird
+    hyprpaper papirus-icon-theme jq hypridle ladybird texliveFull texlab
+    lua51Packages.lua
+    luajitPackages.jsregexp
+    luajitPackages.luarocks
+
   ];
 
   home.stateVersion = "25.05";
