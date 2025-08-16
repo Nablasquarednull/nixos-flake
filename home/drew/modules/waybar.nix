@@ -59,7 +59,7 @@ in
           format-wifi = "  {essid}";
           format-ethernet = "  {ifname}";
           format-disconnected = "⚠️ No Network";
-          on-click = "networkmanager_dmenu";
+          on-click = "networkmanager_dmenu --launcher wofi";
         };
 
         battery = {

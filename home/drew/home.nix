@@ -6,6 +6,7 @@ let
 in
 {
   imports = [
+    "${modulesPath}/nvim.nix"
     "${modulesPath}/hypridle.nix"
     "${modulesPath}/hyprpaper.nix"
     "${modulesPath}/hyprlock.nix"
@@ -25,10 +26,13 @@ in
     python3 clang git-credential-oauth anki-bin pamixer brightnessctl
     inetutils usbutils playerctl grim slurp wl-clipboard xdg-utils
     tree nnn ranger nerd-fonts.jetbrains-mono networkmanager_dmenu
-    hyprpaper papirus-icon-theme jq hypridle ladybird texliveFull texlab
+    hyprpaper papirus-icon-theme jq hypridle ladybird 
+    texliveFull 
+    texlab
     lua51Packages.lua
     luajitPackages.jsregexp
     luajitPackages.luarocks
+
 
   ];
 

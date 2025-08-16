@@ -45,7 +45,7 @@ in {
 
     extraConfig = ''
       input {
-        kb_layout = es
+        kb_layout = us
       }
       exec-once = waybar
       monitor = eDP-1,1920x1080@60,0x0,1
