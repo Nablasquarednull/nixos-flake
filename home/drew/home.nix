@@ -33,7 +33,7 @@ in
     luajitPackages.jsregexp
     luajitPackages.luarocks
     imv
-
+    pyright
   ];
 
   home.stateVersion = "25.05";
