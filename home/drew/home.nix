@@ -32,7 +32,7 @@ in
     lua51Packages.lua
     luajitPackages.jsregexp
     luajitPackages.luarocks
-
+    imv
 
   ];
 
