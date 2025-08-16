@@ -66,6 +66,7 @@
     waybar
     mpv
     git-credential-oauth
+    util-linux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
