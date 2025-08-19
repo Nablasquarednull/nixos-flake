@@ -11,7 +11,10 @@
     plugins = with pkgs.vimPlugins; [
       vim-nix
       telescope-nvim
-      nvim-treesitter.withAllGrammars
+      (nvim-treesitter.withPlugins (p: [
+        p.python
+        p.nix 
+      ]))
       lualine-nvim
       gruvbox-nvim
       nvim-web-devicons
@@ -47,26 +50,53 @@
         }
       }
 
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'buffer' },
-          { name = 'path' }
-        })
-      })
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
+  mapping = {
+    -- Enter confirma la sugerencia
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+
+    -- Shift+Enter navega las sugerencias (next)
+    ["<S-CR>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    -- Tab expande o salta en snippets
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    -- Shift+Tab salta hacia atrás en snippets
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  },
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+  })
+})
 
       require("nvim-treesitter.configs").setup {
         highlight = {
@@ -80,6 +110,14 @@
       lspconfig.pyright.setup({})
       lspconfig.clangd.setup({})
       lspconfig.ts_ls.setup({})
+
+      -- Configurar ruta de snippets personalizados
+      require("luasnip.loaders.from_lua").lazy_load({
+      paths = vim.fn.stdpath("config") .. "/snippets"
+    })
+
+
+
     '';
   };
 }
