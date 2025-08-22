@@ -35,6 +35,7 @@ in
     imv
     pyright
     neovim-remote
+    wtype
   ];
 
   home.stateVersion = "25.05";

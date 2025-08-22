@@ -121,6 +121,19 @@ end, { "i", "s" }),
       paths = vim.fn.stdpath("config") .. "/snippets"
     })
 
+    -- Configuración VimTeX
+      vim.g.vimtex_view_method = 'zathura_simple'
+      vim.g.vimtex_compiler_latexmk = {
+        continuous = 1,
+        executable = 'latexmk',
+        options = {
+          '-pdf',
+          '-interaction=nonstopmode',
+          '-synctex=1',
+          '-shell-escape',
+        },
+      }
+
 
 
     '';
