@@ -34,6 +34,7 @@ in
     luajitPackages.luarocks
     imv
     pyright
+    neovim-remote
   ];
 
   home.stateVersion = "25.05";
