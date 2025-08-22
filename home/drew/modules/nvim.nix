@@ -60,9 +60,14 @@ cmp.setup({
     end
   },
   mapping = {
-    -- Enter confirma la sugerencia
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-
+    -- Enter confirma la sugerencia si hay una entrada seleccionada, si no la hay, salta la linea
+    ["<CR>"] = cmp.mapping(function(fallback)
+  if cmp.visible() and cmp.get_selected_entry() then
+    cmp.confirm({ select = false })
+  else
+    fallback() -- hace el salto de línea normal
+  end
+end, { "i", "s" }),
     -- Shift+Enter navega las sugerencias (next)
     ["<S-CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
