@@ -36,6 +36,9 @@ in
     pyright
     neovim-remote
     wtype
+    unzip
+    grim
+    slurp
   ];
 
   home.stateVersion = "25.05";
