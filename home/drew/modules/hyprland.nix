@@ -13,7 +13,7 @@ in {
         "SUPER SHIFT, Q, killactive,"
         "${mod}, D, exec, wofi --show drun"
         "SUPER, X, exec, hyprlock"
-        "Print, exec, sh -c 'grim -g \"$(slurp)\" - | wl-copy'"
+        ",Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
 
         "${mod} SHIFT, H, movewindow, l"
         "${mod} SHIFT, L, movewindow, r"

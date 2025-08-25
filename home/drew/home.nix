@@ -37,8 +37,10 @@ in
     neovim-remote
     wtype
     unzip
+    #To take screenshots
     grim
     slurp
+    swappy
   ];
 
   home.stateVersion = "25.05";
