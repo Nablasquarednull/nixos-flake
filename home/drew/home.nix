@@ -41,6 +41,9 @@ in
     grim
     slurp
     swappy
+    xournalpp #xournal++
+    thunderbird
+    octaveFull
   ];
 
   home.stateVersion = "25.05";
