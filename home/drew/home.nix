@@ -44,6 +44,11 @@ in
     xournalpp #xournal++
     thunderbird
     octaveFull
+    #cursors
+    hyprcursor
+    bibata-cursors
+    rose-pine-hyprcursor
+
   ];
 
   home.stateVersion = "25.05";

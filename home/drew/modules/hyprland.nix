@@ -7,7 +7,6 @@ in {
     enable = true;
 
     settings = {
-
       bind = [
         "${mod}, Return, exec, kitty"
         "SUPER SHIFT, Q, killactive,"
@@ -62,6 +61,7 @@ in {
   }
   exec-once = hyprpaper
   exec-once = hypridle
+  exec-once = hyprctl setcursor rose-pine-hyprcursor 36
     '';
   };
 }
