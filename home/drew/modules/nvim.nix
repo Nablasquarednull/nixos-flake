@@ -51,7 +51,12 @@
       }
 
 local cmp = require("cmp")
+
 local luasnip = require("luasnip")
+
+luasnip.config.set_config({
+  enable_autosnippets = true,
+})
 
 cmp.setup({
   snippet = {

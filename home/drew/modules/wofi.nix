@@ -51,13 +51,20 @@ in {
       background-color: ${theme.selection};
       color: ${theme.foreground};
     }
+
+    image {
+      min-width: 32px;
+      min-height: 32px;
+      margin-right: 10px;
+   }  
+
   '';
 
   # Configuración general de wofi (opcional, pero útil)
   xdg.configFile."wofi/config".text = ''
     show-icons=true
     allow-markup=true
-    image_size = 40
+    image_size = 32
     insensitive=true
     no-persistent-history=true
     location=center

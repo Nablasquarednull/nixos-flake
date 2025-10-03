@@ -32,6 +32,7 @@ in
     lua51Packages.lua
     luajitPackages.jsregexp
     luajitPackages.luarocks
+    lua-language-server
     imv
     pyright
     neovim-remote
