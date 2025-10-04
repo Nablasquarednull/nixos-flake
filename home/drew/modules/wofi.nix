@@ -2,11 +2,13 @@
 
 let
   theme = {
-    background = "#ffffff";
-    foreground = "#000000";
-    accent     = "#cccccc"; # borde y resaltado sutil
-    selection  = "#e0e0e0"; # fondo para ítem seleccionado
-  };
+    white       = "rgba(255, 255, 255, 1)";
+    background  = "rgba(100, 100, 100, 0.6)";
+    foreground  = "rgba(255, 255, 255, 0.5)";
+    accent      = "rgba(42, 42, 42, 0.5)";
+    selection   = "rgba(46, 46, 46, 0.8)";
+    gris_claro  = "rgba(58, 58, 58, 0.5)";
+    };
 in {
   home.packages = [ pkgs.wofi ];
 
@@ -16,22 +18,22 @@ in {
       font-family: JetBrainsMono Nerd Font;
       font-weight: bold;
       font-size: 14px;
-      color: ${theme.foreground};
+      color: ${theme.white};
     }
 
     window {
       background-color: ${theme.background};
       border: 2px solid ${theme.accent};
-      border-radius: 12px;
+      border-radius: 20px;
       padding: 10px;
     }
 
     #input {
       background-color: ${theme.selection};
-      padding: 8px;
-      border-radius: 8px;
-      margin-bottom: 10px;
+      border-radius: 12px;
+      margin-bottom: 16px;
       border: none;
+      color: ${theme.white};
     }
 
     #inner-box, #outer-box, #scroll {
@@ -41,21 +43,20 @@ in {
 
     #entry {
       padding: 10px;
-      margin: 5px 0;
-      border-radius: 8px;
-      background-color: ${theme.background};
+      margin: 5px;
+      border-radius: 12px;
+      background-color: transparent;
       color: ${theme.foreground};
+      transition: background-color 0.2s ease;
     }
 
     #entry:selected {
-      background-color: ${theme.selection};
-      color: ${theme.foreground};
+      background-color: ${theme.gris_claro};
     }
 
-    image {
+    #img {
       min-width: 32px;
       min-height: 32px;
-      margin-right: 10px;
    }  
 
   '';
@@ -63,14 +64,15 @@ in {
   # Configuración general de wofi (opcional, pero útil)
   xdg.configFile."wofi/config".text = ''
     show-icons=true
-    allow-markup=true
-    image_size = 32
+    allow_markup=true
+    allow_images=true
+    image_size = 64
     insensitive=true
     no-persistent-history=true
     location=center
-    width=500
-    height=400
-    lines=10
+    width=700
+    height=600
+    columns=3
     prompt=Search anything...
   '';
 }

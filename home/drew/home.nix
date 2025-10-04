@@ -26,7 +26,12 @@ in
     python3 clang git-credential-oauth anki-bin pamixer brightnessctl
     inetutils usbutils playerctl grim slurp wl-clipboard xdg-utils
     tree nnn ranger nerd-fonts.jetbrains-mono networkmanager_dmenu
-    hyprpaper papirus-icon-theme jq hypridle ladybird 
+    gtk3
+    hyprpaper
+    papirus-icon-theme
+    adwaita-icon-theme
+    hicolor-icon-theme
+    jq hypridle ladybird 
     texliveFull 
     texlab
     lua51Packages.lua
@@ -49,7 +54,6 @@ in
     hyprcursor
     bibata-cursors
     rose-pine-hyprcursor
-
   ];
 
   home.stateVersion = "25.05";
