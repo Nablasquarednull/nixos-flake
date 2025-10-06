@@ -14,6 +14,7 @@
       (nvim-treesitter.withPlugins (p: [
         p.python
         p.nix 
+        p.matlab
       ]))
       lualine-nvim
       gruvbox-nvim

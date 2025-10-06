@@ -49,6 +49,8 @@ in {
       }
       exec-once = waybar
       monitor = eDP-1,1920x1080@60,0x0,1
+      monitor = HDMI-A-2,1920x1080@59.88,1920x0,1
+
       windowrulev2 = opacity 0.95 0.7,class:^(kitty)$
       general {
     border_size = 3

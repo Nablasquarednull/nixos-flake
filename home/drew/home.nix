@@ -50,6 +50,7 @@ in
     xournalpp #xournal++
     thunderbird
     octaveFull
+    octavePackages.symbolic
     #cursors
     hyprcursor
     bibata-cursors
