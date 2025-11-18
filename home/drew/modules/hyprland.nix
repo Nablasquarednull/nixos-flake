@@ -44,6 +44,10 @@ in {
     };
 
     extraConfig = ''
+      device {
+        name=wacom-intuos-bt-s-pen
+        output=eDP-1 
+}
       input {
         kb_layout = us
       }

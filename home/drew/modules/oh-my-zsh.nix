@@ -19,12 +19,6 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = {
-      ll = "ls -l";
-      la = "ls -la";
-      gs = "git status";
-      gp = "git push";
-    };
   };
 }
 

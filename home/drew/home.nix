@@ -49,13 +49,25 @@ in
     swappy
     xournalpp #xournal++
     thunderbird
-    octaveFull
-    octavePackages.symbolic
+    (octaveFull.withPackages (opkgs: with opkgs; [symbolic]))
     #cursors
     hyprcursor
     bibata-cursors
     rose-pine-hyprcursor
+    #Media and video editor
+    krita
+    kdePackages.kdenlive
+    ffmpeg
+    frei0r
+    ladspaPlugins
+    #For mounting/reading IOS devices/media
+    libimobiledevice
+    ifuse
+    usbmuxd
+    spotdl
+    ghostscript
   ];
+
 
   home.stateVersion = "25.05";
 }

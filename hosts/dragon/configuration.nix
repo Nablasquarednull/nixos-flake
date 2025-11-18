@@ -52,6 +52,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  #Allow usbmuxd running as system service, might have to reboot it for it to work properly 
+  services.usbmuxd.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -69,6 +71,13 @@
     util-linux
     exfatprogs
     ntfs3g
+    zip
+    lshw
+    mesa-demos
+    egl-wayland
+    libimobiledevice
+    ifuse
+    gvfs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -94,7 +103,46 @@
   	experimental-features = ["nix-command" "flakes"];
 	};
   programs.zsh.enable = true;
-  services.xserver.enable = true;
+ # services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+
+    videoDrivers = [ "modesetting"];
+
+    # Opcional: útil si quieres poder usar X11 apps como fallback
+    displayManager.gdm.wayland = true;
+  };
+
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      powerManagement.finegrained = true;
+      open = false; # Usa el driver propietario (recomendado para Ampere)
+      nvidiaSettings = true; # Instala el panel nvidia-settings
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      prime = {
+        offload.enable = true;
+        offload.enableOffloadCmd = true;
+  intelBusId = "PCI:0:2:0";
+  nvidiaBusId = "PCI:1:0:0";     
+      };
+    };
+  };
+
+  # Importante para Wayland + Hyprland
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";   # Previene el bug del cursor invisible
+   # GBM_BACKEND = "nvidia-drm";      # Habilita render directo con NVIDIA GBM
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
+  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  boot.extraModprobeConfig = ''
+    options nvidia-drm modeset=1
+  '';
   programs.hyprland = {
   	enable = true;
 	xwayland.enable = true;
