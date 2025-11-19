@@ -55,8 +55,6 @@ in
     bibata-cursors
     rose-pine-hyprcursor
     #Media and video editor
-    krita
-    kdePackages.kdenlive
     ffmpeg
     frei0r
     ladspaPlugins
@@ -64,7 +62,6 @@ in
     libimobiledevice
     ifuse
     usbmuxd
-    spotdl
     ghostscript
   ];
 
